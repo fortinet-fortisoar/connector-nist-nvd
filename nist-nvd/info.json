@@ -4,18 +4,19 @@
   "label": "NIST National Vulnerability Database",
   "description": "The NIST National Vulnerability Database (NVD) is the U.S. government repository of standards based vulnerability management data represented using the Security Content Automation Protocol (SCAP). This data enables automation of vulnerability management, security measurement, and compliance. The NVD includes databases of security checklist references, security related software flaws, misconfigurations, product names, and impact metrics.",
   "publisher": "Fortinet",
-  "cs_approved": true,
+  "cs_approved": false,
   "cs_compatible": true,
   "category": "Vulnerability Management",
   "icon_small_name": "cyops_small.png",
   "icon_large_name": "cyops_large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/nist-national-vulnerability-database/484/nist-national-vulnerability-database-v1-0-0",
   "configuration": {
     "fields": [
       {
         "title": "Server URL",
         "name": "server_url",
-        "description": "The URL of the NIST NVD server to which you will connect and perform the automated operations.",
+        "description": "Specify the URL of the NIST NVD server to which you will connect and perform the automated operations.",
+        "tooltip": "Specify the URL of the NIST NVD server to which you will connect and perform the automated operations.",
         "type": "text",
         "visible": true,
         "editable": true,
@@ -26,6 +27,7 @@
         "title": "API Key",
         "name": "api_key",
         "description": "The API key used to access the NIST NVD server to which you will connect and perform the automated operations.",
+        "tooltip": "Specify the API key used to access the NIST NVD server to which you will connect and perform the automated operations.",
         "type": "password",
         "visible": true,
         "editable": true,
@@ -35,7 +37,8 @@
       {
         "title": "Verify SSL",
         "name": "verify_ssl",
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. \nBy default, this option is set to True.",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. \nBy default, this option is set to True.",
         "type": "checkbox",
         "visible": true,
         "editable": true,
@@ -49,13 +52,13 @@
       "operation": "get_specific_cve_details",
       "title": "Get Specific CVE Details",
       "annotation": "get_specific_cve_details",
-      "description": "Retrieves the details of the specific vulnerability based on it's unique CVE ID (Common Vulnerabilities and Exposures Identifier)",
+      "description": "Retrieves the details of a specific vulnerability based on the Common Vulnerabilities and Exposures Identifier (CVE ID) you have specified.",
       "category": "investigation",
       "parameters": [
         {
           "name": "cveId",
           "title": "CVE ID",
-          "description": "Specify the CVE ID whose details you wants to retrieve from National Vulnerability Database(NVD).",
+          "description": "Specify the CVE ID to retrieve its details from National Vulnerability Database(NVD).",
           "type": "text",
           "editable": true,
           "visible": true,
@@ -182,43 +185,43 @@
       "operation": "cve_search",
       "title": "Advance CVE Search",
       "annotation": "advance_cve_search",
-      "description": "Retrieves the list of CVEs based on provided filter values",
+      "description": "Retrieves a list of CVE IDs based on the filter criteria you have specified.",
       "category": "investigation",
       "parameters": [
         {
           "title": "Filter by CPE Name",
           "name": "useCpeName",
-          "description": "Retrieves all CVE associated with a specific Common Platform Enumeration(CPE) from National Vulnerability Database(NVD).",
+          "description": "Select this checkbox to retrieve CVEs associated with a specific Common Platform Enumeration(CPE) from the National Vulnerability Database(NVD).",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve CVE(s) associated with a specific Common Platform Enumeration(CPE).",
+          "tooltip": "Select this checkbox to retrieve CVEs associated with a specific Common Platform Enumeration(CPE) from the National Vulnerability Database(NVD).",
           "onchange": {
             "true": [
               {
                 "name": "cpeName",
                 "title": "CPE Name",
-                "description": "Retrieves CVE of specified the Common Platform Enumeration(CPE) Name.",
+                "description": "Specify the CPE name to filter the search results so that the results contain only the specified CPE name.",
                 "type": "text",
                 "editable": true,
                 "visible": true,
                 "required": true,
                 "value": "",
-                "tooltip": "Specify the Common Platform Enumeration(CPE) Name.",
+                "tooltip": "Specify the CPE name to filter the search results so that the results contain only the specified CPE name.",
                 "placeholder": "e.g cpe:2.3:o:microsoft:windows_10:1607:*:*:*:*:*:*:*"
               },
               {
                 "name": "isVulnerable",
                 "title": "Is Vulnerable",
-                "description": "Retrieves only CVE associated with a specific CPE, where the CPE is also considered vulnerable",
+                "description": "Select the checkbox to filter the search results so that they contain only the vulnerable CPEs.",
                 "type": "checkbox",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": false,
-                "tooltip": "Ensure that CPE Name must be given for this option."
+                "tooltip": "Select the checkbox to filter the search results so that they contain only the vulnerable CPEs."
               }
             ]
           }
@@ -226,25 +229,25 @@
         {
           "title": "Filter By CWE ID",
           "name": "useCweId",
-          "description": "Retrieves all CVE associated with a specific Common Weakness Enumeration(CWE) ID from National Vulnerability Database(NVD).",
+          "description": "Select this checkbox to retrieve CVEs associated with a specific Common Weakness Enumeration (CWE) ID from the National Vulnerability Database(NVD).",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve all CVE associated with a specific Common Weakness Enumeration(CWE) ID.",
+          "tooltip": "Select this checkbox to retrieve CVEs associated with a specific Common Weakness Enumeration (CWE) ID from the National Vulnerability Database(NVD).",
           "onchange": {
             "true": [
               {
                 "name": "cweId",
                 "title": "CWE ID",
-                "description": "Retrieves CVE of specified the Common Weakness Enumeration(CWE) ID.",
+                "description": "Specify the CPE name to filter the search results so that the results contain only the specified CWE ID.",
                 "type": "text",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": "",
-                "tooltip": "Specify the Common Weakness Enumeration(CWE ID)",
+                "tooltip": "Specify the CPE name to filter the search results so that the results contain only the specified CWE ID.",
                 "placeholder": "e.g CWE-287"
               }
             ]
@@ -253,36 +256,36 @@
         {
           "title": "Filter By CVSSv2 Metrics",
           "name": "useCVSSv2",
-          "description": "Retrieves CVEs associated with specified CVSSv2 Metrics from National Vulnerability Database(NVD).",
+          "description": "Select this checkbox to retrieve CVEs associated with a specified CVSSv2 string from the National Vulnerability Database(NVD).",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve CVEs for specified CVSSv2 Metrics",
+          "tooltip": "Select this checkbox to retrieve CVEs associated with a specified CVSSv2 string from the National Vulnerability Database(NVD).",
           "onchange": {
             "true": [
               {
                 "name": "cvssV2Metrics",
                 "title": "CVSSv2 Vector String",
-                "description": "Retrieves all CVE associated with a specific CVSSv2 Vector String from National Vulnerability Database(NVD).",
+                "description": "Specify the CVSSv2 vector string to filter the results so that they contain only the specified CVSSv2 vector string.",
                 "type": "text",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": "",
-                "tooltip": "Specify the CVSSv2 Vector String",
+                "tooltip": "Specify the CVSSv2 vector string to filter the results so that they contain only the specified CVSSv2 vector string.",
                 "placeholder": "e.g AV:N/AC:H/Au:N/C:C/I:C/A:C"
               },
               {
                 "name": "cvssV2Severity",
                 "title": "CVSSv2 Severity",
-                "description": "Retrieves CVE(s) that match the provided CVSSv2 qualitative severity rating from National Vulnerability Database(NVD).",
+                "description": "Select a severity rating, to return only the results that match the CVSSv2 qualitative severity rating, from the following options:  \n\nLOW \n\nMEDIUM \n\nHIGH",
                 "type": "select",
                 "editable": true,
                 "visible": true,
                 "required": false,
-                "tooltip": "Specify the CVSSv2 severity rating",
+                "tooltip": "Select a severity rating, to return only the results that match the CVSSv2 qualitative severity rating, from the following options",
                 "options": [
                   "HIGH",
                   "MEDIUM",
@@ -296,36 +299,36 @@
         {
           "title": "Filter By CVSSv3 Metrics",
           "name": "useCVSSv3",
-          "description": "Retrieves CVEs associated with specified CVSSv3 Metrics from National Vulnerability Database(NVD).",
+          "description": "Select this checkbox to retrieve CVEs associated with a specified CVSSv3 string from the National Vulnerability Database(NVD).",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve CVEs for specified CVSSv3 Metrics",
+          "tooltip": "Select this checkbox to retrieve CVEs associated with a specified CVSSv3 string from the National Vulnerability Database(NVD).",
           "onchange": {
             "true": [
               {
                 "name": "cvssV3Metrics",
                 "title": "CVSSv3 Vector String",
-                "description": "Retrieves all CVE associated with a specific CVSSv3 Vector String from National Vulnerability Database(NVD).",
+                "description": "Specify the CVSSv3 vector string to filter the results so that they contain only the specified CVSSv3 vector string.",
                 "type": "text",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": "",
-                "tooltip": "Specify the CVSSv3 Vector String",
+                "tooltip": "Specify the CVSSv3 vector string to filter the results so that they contain only the specified CVSSv3 vector string.",
                 "placeholder": "e.g AV:L/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:L"
               },
               {
                 "name": "cvssV3Severity",
                 "title": "CVSSv3 Severity",
-                "description": "Retrieves all CVE that match the provided CVSSv3 qualitative severity rating from National Vulnerability Database(NVD).",
+                "description": "Select a severity rating, to return only the results that match the CVSSv3 qualitative severity rating, from the following options:  \n\nLOW \n\nMEDIUM \n\nHIGH",
                 "type": "select",
                 "editable": true,
                 "visible": true,
                 "required": false,
-                "tooltip": "Specify the CVSSv3 severity rating",
+                "tooltip": "Select a severity rating, to return only the results that match the CVSSv3 qualitative severity rating, from the following options",
                 "options": [
                   "HIGH",
                   "MEDIUM",
@@ -339,58 +342,58 @@
         {
           "title": "Use Search Flags",
           "name": "useSearchFlags",
-          "description": "Retrieves CVEs associated with specified search flags.",
+          "description": "Select this checkbox to retrieve CVEs associated with a specified search flag.",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve CVEs for specified search flags.",
+          "tooltip": "Select this checkbox to retrieve CVEs associated with a specified search flag.",
           "onchange": {
             "true": [
               {
                 "name": "hasKev",
                 "title": "Has KEV",
-                "description": "Retrieves the CVE that appear in CISA's Known Exploited Vulnerabilities (KEV) Catalog",
+                "description": "Select this checkbox to retrieve CVEs that appear in CISA's Known Exploited Vulnerabilities (KEV) Catalog.",
                 "type": "checkbox",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": false,
-                "tooltip": "Select this option to retrieve the CVE that appear in CISA's Known Exploited Vulnerabilities (KEV) Catalog"
+                "tooltip": "Select this checkbox to retrieve CVEs that appear in CISA's Known Exploited Vulnerabilities (KEV) Catalog."
               },
               {
                 "name": "hasCertAlerts",
                 "title": "Has Technical Alerts",
-                "description": "Retrieves the CVE that contain a Technical Alert from US-CERT.",
+                "description": "Select this checkbox to retrieve CVEs that contain a technical alert from US-CERT.",
                 "type": "checkbox",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": false,
-                "tooltip": "Select this option to retrieve the CVE that contain a Technical Alert from US-CERT."
+                "tooltip": "Select this checkbox to retrieve CVEs that contain a technical alert from US-CERT."
               },
               {
                 "name": "hasCertNotes",
                 "title": "Has Cert Notes",
-                "description": "Retrieves the CVE that contain a Vulnerability Note from CERT/CC.",
+                "description": "Select this checkbox to retrieve CVEs that contain a vulnerability note from CERT/CC.",
                 "type": "checkbox",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": false,
-                "tooltip": "Select this option to retrieve the CVE that contain a Vulnerability Note from CERT/CC."
+                "tooltip": "Select this checkbox to retrieve CVEs that contain a vulnerability note from CERT/CC."
               },
               {
                 "name": "hasOval",
                 "title": "Has Oval",
-                "description": "Retrieves the CVE that contain information from MITRE's Open Vulnerability and Assessment Language (OVAL) before this transitioned to the Center for Internet Security (CIS)",
+                "description": "Select this checkbox to retrieve CVEs that contain information from MITRE's Open Vulnerability and Assessment Language (OVAL) before OVAL transitioned to the Center for Internet Security (CIS).",
                 "type": "checkbox",
                 "editable": true,
                 "visible": true,
                 "required": false,
                 "value": false,
-                "tooltip": "Select this option to retrieve the CVE that contain information from MITRE's Open Vulnerability and Assessment Language (OVAL)"
+                "tooltip": "Select this checkbox to retrieve CVEs that contain information from MITRE's Open Vulnerability and Assessment Language (OVAL) before OVAL transitioned to the Center for Internet Security (CIS)."
               }
             ]
           }
@@ -398,13 +401,13 @@
         {
           "title": "Filter By Publish Date",
           "name": "usePublishDate",
-          "description": "Retrieves CVE list that are published to the NVD during specified period.",
+          "description": "Select this checkbox to retrieve a CVE list that was published to the NVD during the specified period.",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve CVE list that are published to the NVD during specified period.",
+          "tooltip": "Select this checkbox to retrieve a CVE list that was published to the NVD during the specified period.",
           "onchange": {
             "true": [
               {
@@ -414,8 +417,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "tooltip": "Specify the Start Date and time of Publish Date for CVE.",
-                "description": "Specify the Start Date and time of Publish Date for CVE."
+                "tooltip": "Specify the start date and time of the period when the CVEs were published.",
+                "description": "Specify the start date and time of the period when the CVEs were published."
               },
               {
                 "title": "End Date",
@@ -424,8 +427,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "tooltip": "Specify the End Date and time of Publish Date for CVE.",
-                "description": "Specify the End Date and time of Publish Date for CVE."
+                "tooltip": "Specify the end date and time of the period when the CVEs were published.",
+                "description": "Specify the end date and time of the period when the CVEs were published."
               }
             ]
           }
@@ -433,13 +436,13 @@
         {
           "title": "Filter By Last Modified Date",
           "name": "useLastModDate",
-          "description": "Retrieve CVE list based on last modified date of CVE in the NVD during specified period.",
+          "description": "Select this checkbox to retrieve a CVE list that was modified in the NVD during the specified period.",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve CVE list based on last modified date of CVE in the NVD for specified period.",
+          "tooltip": "Select this checkbox to retrieve a CVE list that was modified in the NVD during the specified period.",
           "onchange": {
             "true": [
               {
@@ -449,8 +452,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "tooltip": "Specify the start date and time of last modified date for CVE.",
-                "description": "Specify the start date and time of last modified date for CVE."
+                "tooltip": "Specify the start date and time of the period when the CVEs were modified.",
+                "description": "Specify the start date and time of the period when the CVEs were modified."
               },
               {
                 "title": "End Date",
@@ -459,8 +462,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "tooltip": "Specify the end date and time of last modified date for CVE.",
-                "description": "Specify the end date and time of last modified date for CVE."
+                "tooltip": "Specify the end date and time of the period when the CVEs were modified.",
+                "description": "Specify the end date and time of the period when the CVEs were modified."
               }
             ]
           }
@@ -468,24 +471,24 @@
         {
           "name": "startIndex",
           "title": "Page Index",
-          "description": "Specifies the index of the first CVE to be returned in the response data",
+          "description": "(Optional) Specify the count of the first few records to skip while retrieving the response.",
           "type": "integer",
           "editable": true,
           "visible": true,
           "required": false,
           "value": 0,
-          "tooltip": "Specifies the index of the first CVE to be returned in the response data"
+          "tooltip": "(Optional) Specify the count of the first few records to skip while retrieving the response."
         },
         {
           "name": "resultsPerPage",
           "title": "Page Size",
-          "description": "Number of results that should be included per page. By default, this is set to 10.",
+          "description": "(Optional) Specify the maximum number of results to get in the resulting output. By default, this is set to 10.",
           "type": "integer",
           "editable": true,
           "visible": true,
           "required": false,
           "value": 10,
-          "tooltip": "Specify number of results that should be included per page. By default, this is set to 10. The page size cannot be set greater than 2000.",
+          "tooltip": "(Optional) Specify the maximum number of results to get in the resulting output. By default, this is set to 10 and cannot be set greater than 2000.",
           "validation": {
             "maxlength": "2000",
             "minlength": "1"
@@ -609,31 +612,31 @@
       "operation": "cve_search_by_keywords",
       "title": "CVE Search by Keywords",
       "annotation": "cve_search_by_keywords",
-      "description": "Retrieves the CVEs where provided keyword(s) found in the CVE description.",
+      "description": "Retrieves CVEs from the National Vulnerability Database (NVD) based on the keywords you have specified.",
       "category": "investigation",
       "parameters": [
         {
           "name": "keywordSearch",
           "title": "Keyword(s)",
-          "description": "Specify the keyword(s) that is a part of CVE description.",
+          "description": "Specify the keywords to search for in the CVE's description and return the CVEs that match all the keywords specified.",
           "type": "text",
           "editable": true,
           "visible": true,
           "required": true,
           "value": "",
-          "tooltip": "Provide keyword(s) in list or CSV format.",
+          "tooltip": "Specify the keywords to search for in the CVE's description and return the CVEs that match all the keywords specified.",
           "placeholder": "['Windows', 'MacOs', 'Debian']"
         },
         {
           "name": "startIndex",
           "title": "Page Index",
-          "description": "Specifies the index of the first CVE to be returned in the response data",
+          "description": "(Optional) Specify the count of the first few records to skip while retrieving the response.",
           "type": "integer",
           "editable": true,
           "visible": true,
           "required": false,
           "value": 0,
-          "tooltip": "Specifies the index of the first CVE to be returned in the response data"
+          "tooltip": "(Optional) Specify the count of the first few records to skip while retrieving the response."
         },
         {
           "name": "resultsPerPage",
@@ -644,7 +647,7 @@
           "visible": true,
           "required": false,
           "value": 10,
-          "tooltip": "Number of results that should be included per page. By default, this is set to 10. The page size cannot be set greater than 2000.",
+          "tooltip": "(Optional) Specify the maximum number of results to get in the resulting output. By default, this is set to 10 and cannot be set greater than 2000.",
           "validation": {
             "maxlength": "2000",
             "minlength": "1"
@@ -745,25 +748,25 @@
       "operation": "get_cve_change_history",
       "title": "Get CVE Change History",
       "annotation": "get_cve_change_history",
-      "description": "Retrieves information on changes made to a CVE.",
+      "description": "Retrieves information on changes made to a CVE based on the CVE ID and Change Event type you have specified.",
       "category": "investigation",
       "parameters": [
         {
           "name": "cveId",
           "title": "CVE ID",
-          "description": "Specify the CVE ID whose change history you wants to retrieve from National Vulnerability Database(NVD).",
+          "description": "Specify the CVE ID to get the complete change history for a specific vulnerability identified by its unique Common Vulnerabilities and Exposures identifier (CVE ID).",
           "type": "text",
           "editable": true,
           "visible": true,
           "required": false,
           "value": "",
-          "tooltip": "Specify the CVE ID whose change history you wants to retrieve.",
+          "tooltip": "Specify the CVE ID to get the complete change history for a specific vulnerability identified by its unique Common Vulnerabilities and Exposures identifier (CVE ID).",
           "placeholder": "e.g CVE-2021-44228"
         },
         {
           "title": "Change Event Type",
-          "description": "Retrieves all CVE associated with a specific type of change event.",
-          "tooltip": "Retrieves all CVE associated with a specific type of change event.",
+          "description": "Select one of the following options to retrieve all CVEs associated with the specified change event type.",
+          "tooltip": "Select one of the following options to retrieve all CVEs associated with the specified change event type.",
           "type": "select",
           "name": "eventName",
           "options": [
@@ -787,13 +790,13 @@
         {
           "title": "Filter By Change Date",
           "name": "useChangeDate",
-          "description": "Retrieve any CVE that changed during the specified period.",
+          "description": "Select this checkbox to retrieve a CVE list where CVEs were changed in the NVD during the specified period.",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Select this option to retrieve any CVE that changed during the specified period. Date range cannot exceed 120 days.",
+          "tooltip": "Select this checkbox to retrieve a CVE list where CVEs were changed in the NVD during the specified period. Date range cannot exceed 120 days.",
           "onchange": {
             "true": [
               {
@@ -803,8 +806,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "description": "Specify the start date and time of change date for CVE.",
-                "tooltip": "Specify the start date and time of change date for CVE."
+                "description": "Specify the start date and time of the period when the CVEs were changed.",
+                "tooltip": "Specify the start date and time of the period when the CVEs were changed."
               },
               {
                 "title": "Change End Date",
@@ -813,8 +816,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "description": "Specify the end date and time of change date for CVE.",
-                "tooltip": "Specify the end date and time of change date for CVE."
+                "description": "Specify the end date and time of the period when the CVEs were changed.",
+                "tooltip": "Specify the end date and time of the period when the CVEs were changed."
               }
             ]
           }
@@ -822,24 +825,24 @@
         {
           "name": "startIndex",
           "title": "Page Index",
-          "description": "Specifies the index of the first change events to be returned in the response data",
+          "description": "Specify the count of the first few records to skip while retrieving the response.",
           "type": "integer",
           "editable": true,
           "visible": true,
           "required": false,
           "value": 0,
-          "tooltip": "Specifies the index of the first change events to be returned in the response data"
+          "tooltip": "Specify the count of the first few records to skip while retrieving the response."
         },
         {
           "name": "resultsPerPage",
           "title": "Page Size",
-          "description": "Number of results that should be included per page. By default, this is set to 10.",
+          "description": "Specify the maximum number of results to get in the resulting output. By default, this is set to 10.",
           "type": "integer",
           "editable": true,
           "visible": true,
           "required": false,
           "value": 10,
-          "tooltip": "Specify number of results that should be included per page. By default, this is set to 10. The page size cannot be set greater than 5000.",
+          "tooltip": "Specify the maximum number of results to get in the resulting output. By default, this is set to 10. The page size cannot be set greater than 5000.",
           "validation": {
             "maxlength": "5000",
             "minlength": "1"
@@ -878,13 +881,13 @@
       "operation": "cpe_search",
       "title": "CPE Search",
       "annotation": "cpe_search",
-      "description": "Retrieves information of Common Platform Enumeration(CPE) records from Official CPE Dictionary in National Vulnerability Database(NVD).",
+      "description": "Retrieves information about the Common Platform Enumeration(CPE) records from the official CPE Dictionary in National Vulnerability Database(NVD) based on the CPE Name ID you have specified.",
       "category": "investigation",
       "parameters": [
         {
           "title": "Filter By",
-          "description": "Filter to search information of CPE record.",
-          "tooltip": "Select filter to search CPE record.",
+          "description": "Select an option from the following to filter the search information of a CPE record.",
+          "tooltip": "Select an option from the following to filter the search information of a CPE record.",
           "type": "select",
           "name": "filterBy",
           "options": [
@@ -985,13 +988,13 @@
         {
           "title": "Use Last Modified Date",
           "name": "useLastModDate",
-          "description": "Retrieve any CPE that modified during the specified period.",
+          "description": "Select this checkbox to retrieve any CPE where CPEs were last modified during the specified period.",
           "type": "checkbox",
           "visible": true,
           "editable": true,
           "required": false,
           "value": false,
-          "tooltip": "Retrieve any CPE that modified during the specified period. Date range cannot exceed 120 days.",
+          "tooltip": "Select this checkbox to retrieve any CPE where CPEs were last modified during the specified period. Date range cannot exceed 120 days.",
           "onchange": {
             "true": [
               {
@@ -1001,8 +1004,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "tooltip": "Specify Start Date and time for Modified Date for CPE",
-                "description": "Specify Start Date and time for Modified Date for CPE"
+                "tooltip": "Specify the start date and time of the period when the CPEs were last modified.",
+                "description": "Specify the start date and time of the period when the CPEs were last modified."
               },
               {
                 "title": "End Date",
@@ -1011,8 +1014,8 @@
                 "visible": true,
                 "editable": true,
                 "type": "datetime",
-                "tooltip": "Specify End Date and time for Modified Date for CPE",
-                "description": "Specify End Date and time for Modified Date for CPE"
+                "tooltip": "Specify the end date and time of the period when the CVEs were last modified.",
+                "description": "Specify the end date and time of the period when the CVEs were last modified."
               }
             ]
           }
@@ -1020,24 +1023,24 @@
         {
           "name": "startIndex",
           "title": "Page Index",
-          "description": "Specifies the index of the first change events to be returned in the response data",
+          "description": "Specify the count of the first few records to skip while retrieving the response.",
           "type": "integer",
           "editable": true,
           "visible": true,
           "required": false,
           "value": 0,
-          "tooltip": "Specifies the index of the first change events to be returned in the response data"
+          "tooltip": "Specify the count of the first few records to skip while retrieving the response."
         },
         {
           "name": "resultsPerPage",
           "title": "Page Size",
-          "description": "Number of results that should be included per page. By default, this is set to 10.",
+          "description": "Specify the maximum number of results to get in the resulting output. By default, this is set to 10.",
           "type": "integer",
           "editable": true,
           "visible": true,
           "required": false,
           "value": 10,
-          "tooltip": "Number of results that should be included per page. By default, this is set to 10. The page size cannot be set greater than 5000.",
+          "tooltip": "Specify the maximum number of results to get in the resulting output. By default, this is set to 10. The page size cannot be set greater than 5000.",
           "validation": {
             "maxlength": "5000",
             "minlength": "1"
