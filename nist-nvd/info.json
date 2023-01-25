@@ -1,10 +1,10 @@
 {
   "name": "nist-nvd",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "label": "NIST National Vulnerability Database",
   "description": "The NIST National Vulnerability Database (NVD) is the U.S. government repository of standards based vulnerability management data represented using the Security Content Automation Protocol (SCAP). This data enables automation of vulnerability management, security measurement, and compliance. The NVD includes databases of security checklist references, security related software flaws, misconfigurations, product names, and impact metrics.",
   "publisher": "Fortinet",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
   "category": "Vulnerability Management",
   "icon_small_name": "cyops_small.png",
@@ -50,7 +50,7 @@
   "operations": [
     {
       "operation": "get_specific_cve_details",
-      "title": "Get Specific CVE Details",
+      "title": "Get Specific CVE ID Details",
       "annotation": "get_specific_cve_details",
       "description": "Retrieves the details of a specific vulnerability based on the Common Vulnerabilities and Exposures Identifier (CVE ID) you have specified.",
       "category": "investigation",
@@ -188,6 +188,33 @@
       "description": "Retrieves a list of CVE IDs based on the filter criteria you have specified.",
       "category": "investigation",
       "parameters": [
+        {
+          "title": "Filter By CVE ID",
+          "name": "useCveId",
+          "description": "Select this checkbox to retrieve CVEs associated with a specific Common Vulnerabilities and Exposures Identifier (CVE ID) from the National Vulnerability Database(NVD).",
+          "type": "checkbox",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "value": false,
+          "tooltip": "Select this checkbox to retrieve CVEs associated with a specific Common Vulnerabilities and Exposures Identifier (CVE ID) from the National Vulnerability Database(NVD).",
+          "onchange": {
+            "true": [
+              {
+                "name": "cveId",
+                "title": "CVE ID",
+                "description": "Specify the CVE ID to retrieve its details from National Vulnerability Database(NVD).",
+                "type": "text",
+                "editable": true,
+                "visible": true,
+                "required": true,
+                "value": "",
+                "tooltip": "Specify the CVE ID whose details you wants to retrieve from National Vulnerability Database(NVD).",
+                "placeholder": "e.g CVE-2021-44228"
+              }
+            ]
+          }
+        },
         {
           "title": "Filter by CPE Name",
           "name": "useCpeName",

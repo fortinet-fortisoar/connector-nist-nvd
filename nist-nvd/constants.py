@@ -26,5 +26,6 @@ EXCLUDE_LIST = [
     'useLastModDate',
     'useChangeDate',
     'filterBy',
-    'useSearchFlags'
+    'useSearchFlags',
+    'useCveId'
 ]
