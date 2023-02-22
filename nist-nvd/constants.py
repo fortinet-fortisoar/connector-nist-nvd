@@ -9,12 +9,15 @@ Copyright end
 # List of parameters required for CVE advance search
 SEARCH_FLAG_LIST = [
     'isVulnerable',
-    'hasKev',
-    'hasCertAlerts',
-    'hasCertNotes',
-    'hasOval',
     'keywordExactMatch'
 ]
+
+SEARCH_FLAG_DICT = {
+    'Has KEV': 'hasKev',
+    'Has Technical Alerts': 'hasCertAlerts',
+    'Has Cert Notes': 'hasCertNotes',
+    'Has Oval': 'hasOval'
+}
 
 # List of parameters required to be removed before making REST API call
 EXCLUDE_LIST = [

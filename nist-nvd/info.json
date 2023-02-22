@@ -4,12 +4,12 @@
   "label": "NIST National Vulnerability Database",
   "description": "The NIST National Vulnerability Database (NVD) is the U.S. government repository of standards based vulnerability management data represented using the Security Content Automation Protocol (SCAP). This data enables automation of vulnerability management, security measurement, and compliance. The NVD includes databases of security checklist references, security related software flaws, misconfigurations, product names, and impact metrics.",
   "publisher": "Fortinet",
-  "cs_approved": true,
+  "cs_approved": false,
   "cs_compatible": true,
   "category": "Vulnerability Management",
   "icon_small_name": "cyops_small.png",
   "icon_large_name": "cyops_large.png",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/nist-national-vulnerability-database/484/nist-national-vulnerability-database-v1-0-0",
+  "help_online": "",
   "configuration": {
     "fields": [
       {
@@ -366,64 +366,21 @@
             ]
           }
         },
-        {
-          "title": "Use Search Flags",
+                {
           "name": "useSearchFlags",
-          "description": "Select this checkbox to retrieve CVEs associated with a specified search flag.",
-          "type": "checkbox",
-          "visible": true,
+          "title": "Use Search Flags",
+          "type": "multiselect",
           "editable": true,
+          "visible": true,
           "required": false,
-          "value": false,
           "tooltip": "Select this checkbox to retrieve CVEs associated with a specified search flag.",
-          "onchange": {
-            "true": [
-              {
-                "name": "hasKev",
-                "title": "Has KEV",
-                "description": "Select this checkbox to retrieve CVEs that appear in CISA's Known Exploited Vulnerabilities (KEV) Catalog.",
-                "type": "checkbox",
-                "editable": true,
-                "visible": true,
-                "required": false,
-                "value": false,
-                "tooltip": "Select this checkbox to retrieve CVEs that appear in CISA's Known Exploited Vulnerabilities (KEV) Catalog."
-              },
-              {
-                "name": "hasCertAlerts",
-                "title": "Has Technical Alerts",
-                "description": "Select this checkbox to retrieve CVEs that contain a technical alert from US-CERT.",
-                "type": "checkbox",
-                "editable": true,
-                "visible": true,
-                "required": false,
-                "value": false,
-                "tooltip": "Select this checkbox to retrieve CVEs that contain a technical alert from US-CERT."
-              },
-              {
-                "name": "hasCertNotes",
-                "title": "Has Cert Notes",
-                "description": "Select this checkbox to retrieve CVEs that contain a vulnerability note from CERT/CC.",
-                "type": "checkbox",
-                "editable": true,
-                "visible": true,
-                "required": false,
-                "value": false,
-                "tooltip": "Select this checkbox to retrieve CVEs that contain a vulnerability note from CERT/CC."
-              },
-              {
-                "name": "hasOval",
-                "title": "Has Oval",
-                "description": "Select this checkbox to retrieve CVEs that contain information from MITRE's Open Vulnerability and Assessment Language (OVAL) before OVAL transitioned to the Center for Internet Security (CIS).",
-                "type": "checkbox",
-                "editable": true,
-                "visible": true,
-                "required": false,
-                "value": false,
-                "tooltip": "Select this checkbox to retrieve CVEs that contain information from MITRE's Open Vulnerability and Assessment Language (OVAL) before OVAL transitioned to the Center for Internet Security (CIS)."
-              }
-            ]
-          }
+          "description": "Select this checkbox to retrieve CVEs associated with a specified search flag.",
+          "options": [
+            "Has KEV",
+            "Has Technical Alerts",
+            "Has Cert Notes",
+            "Has Oval"
+          ]
         },
         {
           "title": "Filter By Publish Date",

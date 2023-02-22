@@ -56,7 +56,11 @@ def build_query_params(params):
             if params.get(key):
                 payload[key] = ''
         elif key in EXCLUDE_LIST or len(str(params.get(key))) == 0:
-            pass
+            if key == 'useSearchFlags' and len(params.get(key)) > 0:
+                for item in params.get(key):
+                    payload[SEARCH_FLAG_DICT.get(item)] = ''
+            else:
+                pass
         elif key == 'keywordSearch':
             keywords = params.get(key)
             if isinstance(keywords, list):
