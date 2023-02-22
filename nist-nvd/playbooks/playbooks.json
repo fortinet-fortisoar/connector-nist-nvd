@@ -2,9 +2,9 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "576a8efa-44aa-49ed-b6eb-9bd3180e5046",
+      "uuid": "9f7090a0-03b0-4e86-8014-7207f8318923",
       "@type": "WorkflowCollection",
-      "name": "Sample - NIST National Vulnerability Database - 1.1.0",
+      "name": "Sample - NIST National Vulnerability Database - 1.0.1",
       "description": "The NIST National Vulnerability Database (NVD) is the U.S. government repository of standards based vulnerability management data represented using the Security Content Automation Protocol (SCAP). This data enables automation of vulnerability management, security measurement, and compliance. The NVD includes databases of security checklist references, security related software flaws, misconfigurations, product names, and impact metrics.",
       "visible": true,
       "image": null,
@@ -15,8 +15,8 @@
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "672323ce-a732-4c8d-bec7-c154de18034a",
-          "collection": "/api/3/workflow_collections/576a8efa-44aa-49ed-b6eb-9bd3180e5046",
+          "uuid": "b1b9f909-9145-484e-92d1-7cfa79dc4940",
+          "collection": "/api/3/workflow_collections/9f7090a0-03b0-4e86-8014-7207f8318923",
           "triggerLimit": null,
           "description": "Retrieves the details of a specific vulnerability based on the Common Vulnerabilities and Exposures Identifier (CVE ID) you have specified.",
           "name": "Get Specific CVE ID Details",
@@ -30,16 +30,16 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/345403ca-5ef1-48b5-a220-03ff230f0d77",
+          "triggerStep": "/api/3/workflow_steps/660a2057-6eac-4832-aa67-40621ea09858",
           "steps": [
             {
-              "uuid": "345403ca-5ef1-48b5-a220-03ff230f0d77",
+              "uuid": "660a2057-6eac-4832-aa67-40621ea09858",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "6f79b2fc-665d-494e-bc86-dea2344ba1b1",
+                "route": "a82fd339-72d0-4550-8a06-353ca507551f",
                 "title": "NIST National Vulnerability Database: Get Specific CVE ID Details",
                 "resources": [
                   "alerts"
@@ -59,7 +59,7 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "32b2381a-a7bf-4790-b213-3feba88415b5",
+              "uuid": "6602f3c5-cf9f-4d84-8e4e-21914942763d",
               "@type": "WorkflowStep",
               "name": "Get Specific CVE ID Details",
               "description": null,
@@ -70,7 +70,7 @@
                 "params": {
                   "cveId": ""
                 },
-                "version": "1.1.0",
+                "version": "1.0.1",
                 "connector": "nist-nvd",
                 "operation": "get_specific_cve_details",
                 "operationTitle": "Get Specific CVE ID Details",
@@ -86,19 +86,19 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "a85e2693-a26d-41e9-b1d3-1b5975034ffc",
+              "uuid": "538ae76b-c0ef-41fd-a3ca-aff29ff87383",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Get Specific CVE ID Details",
-              "sourceStep": "/api/3/workflow_steps/345403ca-5ef1-48b5-a220-03ff230f0d77",
-              "targetStep": "/api/3/workflow_steps/32b2381a-a7bf-4790-b213-3feba88415b5"
+              "sourceStep": "/api/3/workflow_steps/660a2057-6eac-4832-aa67-40621ea09858",
+              "targetStep": "/api/3/workflow_steps/6602f3c5-cf9f-4d84-8e4e-21914942763d"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "58ab159c-38a2-4ed8-9fd0-8af81db5e8a3",
-          "collection": "/api/3/workflow_collections/576a8efa-44aa-49ed-b6eb-9bd3180e5046",
+          "uuid": "16bbcf0d-e9bd-4c10-9ba1-5b44757bb3fa",
+          "collection": "/api/3/workflow_collections/9f7090a0-03b0-4e86-8014-7207f8318923",
           "triggerLimit": null,
           "description": "Retrieves a list of CVE IDs based on the filter criteria you have specified.",
           "name": "Advance CVE Search",
@@ -112,16 +112,16 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/9a2df4e2-0c49-4539-a2bf-dd23fc23f19a",
+          "triggerStep": "/api/3/workflow_steps/baff01fa-afb6-4c19-b276-65064ed97109",
           "steps": [
             {
-              "uuid": "9a2df4e2-0c49-4539-a2bf-dd23fc23f19a",
+              "uuid": "baff01fa-afb6-4c19-b276-65064ed97109",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "06aacc0e-6a28-4e0f-baaa-a307c8180acb",
+                "route": "f3d7a923-4906-4ae3-a279-d63c5302db37",
                 "title": "NIST National Vulnerability Database: Advance CVE Search",
                 "resources": [
                   "alerts"
@@ -141,7 +141,7 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "d50a8807-892c-49cd-9597-9c3860e39c30",
+              "uuid": "ff609410-9aaf-4ee7-9d2b-a390446e3cd3",
               "@type": "WorkflowStep",
               "name": "Advance CVE Search",
               "description": null,
@@ -155,13 +155,12 @@
                   "useCweId": false,
                   "useCVSSv2": false,
                   "useCVSSv3": false,
-                  "useSearchFlags": false,
                   "usePublishDate": false,
                   "useLastModDate": false,
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.1.0",
+                "version": "1.0.1",
                 "connector": "nist-nvd",
                 "operation": "cve_search",
                 "operationTitle": "Advance CVE Search",
@@ -177,19 +176,19 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "c716a4f1-b0cb-4d74-9364-349ff9c7ff15",
+              "uuid": "9bc6a354-cb9d-4fa6-af9e-ea495b41f701",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Advance CVE Search",
-              "sourceStep": "/api/3/workflow_steps/9a2df4e2-0c49-4539-a2bf-dd23fc23f19a",
-              "targetStep": "/api/3/workflow_steps/d50a8807-892c-49cd-9597-9c3860e39c30"
+              "sourceStep": "/api/3/workflow_steps/baff01fa-afb6-4c19-b276-65064ed97109",
+              "targetStep": "/api/3/workflow_steps/ff609410-9aaf-4ee7-9d2b-a390446e3cd3"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "539afbaa-76ed-4689-9c3a-d6dc81ae5840",
-          "collection": "/api/3/workflow_collections/576a8efa-44aa-49ed-b6eb-9bd3180e5046",
+          "uuid": "31aada5f-2690-4572-bb50-3f2402384735",
+          "collection": "/api/3/workflow_collections/9f7090a0-03b0-4e86-8014-7207f8318923",
           "triggerLimit": null,
           "description": "Retrieves CVEs from the National Vulnerability Database (NVD) based on the keywords you have specified.",
           "name": "CVE Search by Keywords",
@@ -203,16 +202,16 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/0f234739-55c1-4f49-8c8d-e571255d1992",
+          "triggerStep": "/api/3/workflow_steps/de87345a-a014-4057-a64a-54e361f40d7e",
           "steps": [
             {
-              "uuid": "0f234739-55c1-4f49-8c8d-e571255d1992",
+              "uuid": "de87345a-a014-4057-a64a-54e361f40d7e",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "c5832908-4065-43dc-8856-0026d7f23538",
+                "route": "060ddc9d-89ac-4c29-a671-415c23f28bb4",
                 "title": "NIST National Vulnerability Database: CVE Search by Keywords",
                 "resources": [
                   "alerts"
@@ -232,7 +231,7 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "e143ede0-7671-4d1d-a45c-870c429c8828",
+              "uuid": "74f88ffd-96a2-432a-944f-cd77bba920f3",
               "@type": "WorkflowStep",
               "name": "CVE Search by Keywords",
               "description": null,
@@ -245,7 +244,7 @@
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.1.0",
+                "version": "1.0.1",
                 "connector": "nist-nvd",
                 "operation": "cve_search_by_keywords",
                 "operationTitle": "CVE Search by Keywords",
@@ -261,19 +260,19 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "ce86f3d6-7a80-4165-b458-754fc3a7c4f5",
+              "uuid": "cdf1d4af-adbc-4f57-9d38-e2d1d3a7e3bd",
               "label": null,
               "isExecuted": false,
               "name": "Start-> CVE Search by Keywords",
-              "sourceStep": "/api/3/workflow_steps/0f234739-55c1-4f49-8c8d-e571255d1992",
-              "targetStep": "/api/3/workflow_steps/e143ede0-7671-4d1d-a45c-870c429c8828"
+              "sourceStep": "/api/3/workflow_steps/de87345a-a014-4057-a64a-54e361f40d7e",
+              "targetStep": "/api/3/workflow_steps/74f88ffd-96a2-432a-944f-cd77bba920f3"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "0d8e9a93-ba7d-4ab3-9a11-7b5842f564bf",
-          "collection": "/api/3/workflow_collections/576a8efa-44aa-49ed-b6eb-9bd3180e5046",
+          "uuid": "b8b68a40-8d99-4a24-85bf-0b6ee31c384f",
+          "collection": "/api/3/workflow_collections/9f7090a0-03b0-4e86-8014-7207f8318923",
           "triggerLimit": null,
           "description": "Retrieves information on changes made to a CVE based on the CVE ID and Change Event type you have specified.",
           "name": "Get CVE Change History",
@@ -287,16 +286,16 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/5384db50-2408-4f38-88b1-2597fb7dd1ee",
+          "triggerStep": "/api/3/workflow_steps/4c7721ae-7f1a-4c93-9593-59fd310cf65d",
           "steps": [
             {
-              "uuid": "5384db50-2408-4f38-88b1-2597fb7dd1ee",
+              "uuid": "4c7721ae-7f1a-4c93-9593-59fd310cf65d",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "ff366a2a-8d6d-490c-8dde-84118ae78c3d",
+                "route": "c4855617-dde3-49bd-9973-0da58b48798e",
                 "title": "NIST National Vulnerability Database: Get CVE Change History",
                 "resources": [
                   "alerts"
@@ -316,7 +315,7 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "add91f0f-b8ae-4dae-b482-463e40965398",
+              "uuid": "f905a732-ab3d-486e-888a-a96c37bc6451",
               "@type": "WorkflowStep",
               "name": "Get CVE Change History",
               "description": null,
@@ -331,7 +330,7 @@
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.1.0",
+                "version": "1.0.1",
                 "connector": "nist-nvd",
                 "operation": "get_cve_change_history",
                 "operationTitle": "Get CVE Change History",
@@ -347,19 +346,19 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "1b9893cd-1bd6-430a-bc9d-f199d9165f35",
+              "uuid": "10bc394a-6d29-4820-a674-aefccc0d0244",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Get CVE Change History",
-              "sourceStep": "/api/3/workflow_steps/5384db50-2408-4f38-88b1-2597fb7dd1ee",
-              "targetStep": "/api/3/workflow_steps/add91f0f-b8ae-4dae-b482-463e40965398"
+              "sourceStep": "/api/3/workflow_steps/4c7721ae-7f1a-4c93-9593-59fd310cf65d",
+              "targetStep": "/api/3/workflow_steps/f905a732-ab3d-486e-888a-a96c37bc6451"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "08283b2a-18a2-4617-9321-1eebdfb5a33f",
-          "collection": "/api/3/workflow_collections/576a8efa-44aa-49ed-b6eb-9bd3180e5046",
+          "uuid": "6ab30c9b-691b-4f14-a955-9cd71a8d36f7",
+          "collection": "/api/3/workflow_collections/9f7090a0-03b0-4e86-8014-7207f8318923",
           "triggerLimit": null,
           "description": "Retrieves information about the Common Platform Enumeration(CPE) records from the official CPE Dictionary in National Vulnerability Database(NVD) based on the CPE Name ID you have specified.",
           "name": "CPE Search",
@@ -373,16 +372,16 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/449de627-5407-4426-9806-c17986dba6a3",
+          "triggerStep": "/api/3/workflow_steps/268f6e65-e990-43d5-9440-cf50132b460b",
           "steps": [
             {
-              "uuid": "449de627-5407-4426-9806-c17986dba6a3",
+              "uuid": "268f6e65-e990-43d5-9440-cf50132b460b",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "647c6881-6b5c-4dfb-989a-9bc49310dec6",
+                "route": "33d6cedc-7bf9-43de-b06d-0074a03215b4",
                 "title": "NIST National Vulnerability Database: CPE Search",
                 "resources": [
                   "alerts"
@@ -402,7 +401,7 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "d35f8e61-236d-45b5-950a-8c52802c6a9e",
+              "uuid": "98c932c7-437d-4d20-b07b-4f4a3712b03b",
               "@type": "WorkflowStep",
               "name": "CPE Search",
               "description": null,
@@ -416,7 +415,7 @@
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.1.0",
+                "version": "1.0.1",
                 "connector": "nist-nvd",
                 "operation": "cpe_search",
                 "operationTitle": "CPE Search",
@@ -432,12 +431,12 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "f7bea582-51fd-4d9e-943d-ed4184ab75b2",
+              "uuid": "ce1ed0ae-0111-40e0-80af-806ad9bed57c",
               "label": null,
               "isExecuted": false,
               "name": "Start-> CPE Search",
-              "sourceStep": "/api/3/workflow_steps/449de627-5407-4426-9806-c17986dba6a3",
-              "targetStep": "/api/3/workflow_steps/d35f8e61-236d-45b5-950a-8c52802c6a9e"
+              "sourceStep": "/api/3/workflow_steps/268f6e65-e990-43d5-9440-cf50132b460b",
+              "targetStep": "/api/3/workflow_steps/98c932c7-437d-4d20-b07b-4f4a3712b03b"
             }
           ]
         }
