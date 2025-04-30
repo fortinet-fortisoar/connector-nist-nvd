@@ -1,9 +1,2 @@
-#### What's Improved
-- Renamed operation *Get Specific CVE Details* to *Get Specific CVE ID Details*
-- Made below changes in **Advance CVE Search** operation
-  - Added new parameter `Filter by CVE ID` 
-  - Updated data type of following parameters from *checkbox* to *multiselect*
-    - Has KEV
-    - Has Technical Alerts
-    - Has Cert Notes
-    - Has Oval
+#### What's Fixed
+- REST API request was intermittently failing with a 403 status code. Fixed this issue by adding five retries with a 10-second wait time between attempts 

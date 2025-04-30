@@ -27,14 +27,23 @@ class NistNvd(object):
         try:
             url = self.server_url + endpoint
             headers = {'apiKey': self.api_key}
-            response = requests.request(method, url, params=params, data=data, headers=headers, verify=self.verify_ssl)
-
-            if response.status_code == 200:
-                return response
-            else:
-                logger.error(response.text)
-                error_msg = response.headers.get('message', response.text)
-                raise ConnectorError({'status_code': response.status_code, 'message': error_msg})
+            retries = 0
+            while retries < MAX_RETRIES:
+                response = requests.request(method, url, params=params, data=data, headers=headers, verify=self.verify_ssl)
+                if response.ok:
+                    return response
+                elif response.status_code in [403,400]:
+                    retries += 1
+                    logger.debug(f"Received status code: {response.status_code}, retrying {retries}/{MAX_RETRIES}")
+                    time.sleep(WAIT_TIME)
+                    if retries >= MAX_RETRIES:
+                        logger.error(
+                            f"API request max retry limit: {retries} exceeded, please try again after some time.")
+                        raise ConnectorError(f'Error: {response.text}')
+                else:
+                    logger.error(response.text)
+                    error_msg = response.headers.get('message', response.text)
+                    raise ConnectorError({'status_code': response.status_code, 'message': error_msg})
         except requests.exceptions.SSLError:
             raise ConnectorError('SSL certificate validation failed')
         except requests.exceptions.ConnectTimeout:
