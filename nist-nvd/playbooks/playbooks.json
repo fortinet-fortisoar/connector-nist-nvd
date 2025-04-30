@@ -4,7 +4,7 @@
     {
       "uuid": "9f7090a0-03b0-4e86-8014-7207f8318923",
       "@type": "WorkflowCollection",
-      "name": "Sample - NIST National Vulnerability Database - 1.0.1",
+      "name": "Sample - NIST National Vulnerability Database - 1.0.2",
       "description": "The NIST National Vulnerability Database (NVD) is the U.S. government repository of standards based vulnerability management data represented using the Security Content Automation Protocol (SCAP). This data enables automation of vulnerability management, security measurement, and compliance. The NVD includes databases of security checklist references, security related software flaws, misconfigurations, product names, and impact metrics.",
       "visible": true,
       "image": null,
@@ -70,7 +70,7 @@
                 "params": {
                   "cveId": ""
                 },
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "connector": "nist-nvd",
                 "operation": "get_specific_cve_details",
                 "operationTitle": "Get Specific CVE ID Details",
@@ -160,7 +160,7 @@
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "connector": "nist-nvd",
                 "operation": "cve_search",
                 "operationTitle": "Advance CVE Search",
@@ -244,7 +244,7 @@
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "connector": "nist-nvd",
                 "operation": "cve_search_by_keywords",
                 "operationTitle": "CVE Search by Keywords",
@@ -330,7 +330,7 @@
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "connector": "nist-nvd",
                 "operation": "get_cve_change_history",
                 "operationTitle": "Get CVE Change History",
@@ -415,7 +415,7 @@
                   "startIndex": 0,
                   "resultsPerPage": 10
                 },
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "connector": "nist-nvd",
                 "operation": "cpe_search",
                 "operationTitle": "CPE Search",
