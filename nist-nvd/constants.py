@@ -32,3 +32,5 @@ EXCLUDE_LIST = [
     'useSearchFlags',
     'useCveId'
 ]
+WAIT_TIME=10
+MAX_RETRIES=5
